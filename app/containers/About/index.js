@@ -16,8 +16,7 @@ export function About() {
   const [visible, setVisible] = useState(false);
 
   const showModal = e => {
-    const urlReplace = '#' + 'modalOpen';
-    history.pushState(null, null, urlReplace);
+    history.pushState(null , document.title, location.href);
     window.addEventListener('popstate', function(event) {
       setVisible(false);
     });
@@ -25,12 +24,12 @@ export function About() {
   };
 
   const handleOk = e => {
-    window.history.back();
+    window.history.go(-1)
     setVisible(false);
   };
 
   const handleCancel = e => {
-    window.history.back();
+    window.history.go(-1)
     setVisible(false);
   };
   return (
@@ -62,4 +61,4 @@ export function About() {
   );
 }
 
-export default React.memo(About);
+export default About;
