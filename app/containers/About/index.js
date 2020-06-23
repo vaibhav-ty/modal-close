@@ -9,14 +9,21 @@ import styled from 'styled-components';
 import { Helmet } from 'react-helmet';
 import { Modal, Button } from 'antd';
 
-export function About() {
+export function About(props) {
   const CenterDiv = styled.div`
     text-align: center;
   `;
-  const [visible, setVisible] = useState(false);
+  let [visible, setVisible] = useState(false);
+  useEffect(() => {
+    history.pushState(null , null, location.href);
+    setVisible(true);
+    window.addEventListener('popstate', function(event) {
+      setVisible(false);
+    });
+  }, [])
 
   const showModal = e => {
-    history.pushState(null , document.title, location.href);
+    history.pushState(null , null, location.href);
     window.addEventListener('popstate', function(event) {
       setVisible(false);
     });
