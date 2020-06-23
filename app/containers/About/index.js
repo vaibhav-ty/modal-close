@@ -9,7 +9,7 @@ import styled from 'styled-components';
 import { Helmet } from 'react-helmet';
 import { Modal, Button } from 'antd';
 
-export function About(props) {
+export function About() {
   const CenterDiv = styled.div`
     text-align: center;
   `;
@@ -62,4 +62,4 @@ export function About(props) {
   );
 }
 
-export default About;
+export default React.memo(About);
